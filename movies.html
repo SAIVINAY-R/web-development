@@ -4,18 +4,19 @@
         <title>Movies List</title>
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="/assets/deltaX-icon.png">
-        <meta name="viewport" content="width=device-width; initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
         <link href="bootstrap.css" rel="stylesheet">
         <script src="jquery-3.6.0.js"></script>
         <script src="popper.js"></script>
         <script src="bootstrap.js"></script>
+        <script src="constants.js"></script>
         <style>
             .card-img-top {
                 height: 350px !important;
             }
             .card-body {
-                height: 200px !important;
+                height: 250px !important;
             }
             .btn-delete {
                 color: rgb(252, 73, 73); 
@@ -61,444 +62,102 @@
         
         <div class="container movies-container">
           <div class="row" id="movieRow">
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\thor.png' alt='Thor poster'>
-                      <div class='card-body overflow-auto'>
-                          <p class='card-title text-center font-weight-bold'>THOR</p>
-                          <p class='card-text'>The powerful but arrogant god Thor is cast out of Asgard to live amongst humans in Midgard (Earth), where he soon becomes one of their finest defenders.</p>
-                      </div>
-                      <div class='card-footer'>
-                              
-                              <div  class='float-right'>
-                                  <button type='button' class='btn btn-delete'>
-                                      <span class='fa fa-trash'></span>
-                                  </button>
-                                  <button type='button' class='btn btn-edit'>
-                                      <span class='fa fa-edit'></span>
-                                  </button>
-                              </div>
 
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='THOR'
-                                  data-poster='\images\thor.png'
-                                  data-plot="As the son of Odin (Anthony Hopkins), king of the Norse gods, Thor (Chris Hemsworth) will soon inherit the throne of Asgard from his aging father. However, on the day that he is to be crowned, Thor reacts with brutality when the gods' enemies, the Frost Giants, enter the palace in violation of their treaty. As punishment, Odin banishes Thor to Earth. While Loki (Tom Hiddleston), Thor's brother, plots mischief in Asgard, Thor, now stripped of his powers, faces his greatest threat."
-                                  data-release-year='2008'
-                                  data-producer-name='kevin'
-                                  data-actors='Chris, Natalie, Tessa'
-                                  data-genres='Action, Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                      </div>
-
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\hulk.png' alt='Hulk poster'>
-                      <div class='card-body overflow-auto'>
-                          <p class='card-title text-center font-weight-bold'>THE INCREDIBLE HULK</p>
-                          <p class='card-text'>Bruce Banner, a scientist on the run from the U.S. Government, must find a cure for the monster he turns into whenever he loses his temper.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                          <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='THE INCREDIBLE HULK'
-                                  data-poster='\images\hulk.png'
-                                  data-plot="Eric Bana ('Black Hawk Down') stars as scientist Bruce Banner, whose inner demons transform him in the aftermath of a catastrophic experiment; Jennifer Connelly portrays Betty Ross, whose scientific genius unwittingly helps unleash the Hulk; Nick Nolte plays Banner's brilliant father, who passes on a tragic legacy to his son; and Sam Elliott portrays the commander of a top-secret military research center."
-                                  data-release-year='2003'
-                                  data-producer-name='James'
-                                  data-actors='Eric, Jennifer, Sam'
-                                  data-genres='Action, Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                          </a>
-                      </div>
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\ironman.png' alt='Iron Man poster'>
-                      <div class='card-body overflow-auto'>
-                          <p class='card-title text-center font-weight-bold'>IRON MAN</p>
-                          <p class='card-text'>After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.</p>
-                      </div>
-                      <div class='card-footer'>
-                          <div  class='float-right'>
-                            <button type='button' class='btn btn-delete'   >
-                                <span class='fa fa-trash'></span>
-                            </button>
-                            <button type='button' class='btn btn-edit'   >
-                                <span class='fa fa-edit'></span>
-                            </button>
-                        </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Iron Man'
-                                  data-poster='\images\ironman.png'
-                                  data-plot="A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. Returning to America, Stark refines the suit and uses it to combat crime and terrorism."
-                                  data-release-year='2008'
-                                  data-producer-name='kevin'
-                                  data-actors='Robert, Jon, Gwyneth'
-                                  data-genres='Action, Science-Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\breakfast.png' alt='BreakFast poster'>
-                      <div class='card-body overflow-auto'>
-                          <p class='card-title text-center font-weight-bold'>BREAKFAST</p>
-                          <p class='card-text'>Five high school students meet in Saturday detention and discover how they have a lot more in common than they thought.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Breakfast'
-                                  data-poster='\images\breakfast.png'
-                                  data-plot="Five high school students from different walks of life endure a Saturday detention under a power-hungry principal (Paul Gleason). The disparate group includes rebel John (Judd Nelson), princess Claire (Molly Ringwald), outcast Allison (Ally Sheedy), brainy Brian (Anthony Michael Hall) and Andrew (Emilio Estevez), the jock. Each has a chance to tell his or her story, making the others see them a little differently -- and when the day ends, they question whether school will ever be the same."
-                                  data-release-year='1985'
-                                  data-producer-name='John'
-                                  data-actors='Emilio, Paul, Anthony'
-                                  data-genres='Comedy'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                      </div>
-                  </div>
-              </div>
           </div>
+        </div>
 
-          <div class="row" id="movieRow">
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\friday.png' alt='Friday poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>FRIDAY</p>
-                          <p class='card-text'>It's Friday, and Craig and Smokey must come up with $200 they owe a local bully or there won't be a Saturday.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Friday'
-                                  data-poster='\images\friday.png'
-                                  data-plot="It's Friday and Craig Jones (Ice Cube) has just gotten fired for stealing cardboard boxes. To make matters worse, rent is due, he hates his overbearing girlfriend, Joi (Paula Jai Parker), and his best friend, Smokey (Chris Tucker), owes the local drug dealer money -- and that's all before lunch. As the hours drag on, Jones and Smokey experience the gamut of urban life, complete with crackheads, shoot-outs and overly sexual pastors, concentrated into one single, unbelievable Friday."
-                                  data-release-year='1995'
-                                  data-producer-name='Patricia'
-                                  data-actors='Chris, Nia, Bernie'
-                                  data-genres='Comedy'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                      </div>
-
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\future.png' alt='Future poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>FUTURE</p>
-                          <p class='card-text'>Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Future'
-                                  data-poster='\images\future.png'
-                                  data-plot="In this 1980s sci-fi classic, small-town California teen Marty McFly (Michael J. Fox) is thrown back into the '50s when an experiment by his eccentric scientist friend Doc Brown (Christopher Lloyd) goes awry. Traveling through time in a modified DeLorean car, Marty encounters young versions of his parents (Crispin Glover, Lea Thompson), and must make sure that they fall in love or he'll cease to exist. Even more dauntingly, Marty has to return to his own time and save the life of Doc Brown."
-                                  data-release-year='1985'
-                                  data-producer-name='Gina'
-                                  data-actors='Miranda, Hamish'
-                                  data-genres='Drama, Science-Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\harrypotter.png' alt='HarryPotter poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>HARRY POTTER</p>
-                          <p class='card-text'>An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='HarryPotter'
-                                  data-poster='\images\harrypotter.png'
-                                  data-plot="The main story arc concerns Harry's struggle against Lord Voldemort, a dark wizard who intends to become immortal, overthrow the wizard governing body known as the Ministry of Magic and subjugate all wizards and Muggles (non-magical people)."
-                                  data-release-year='2001'
-                                  data-producer-name='David'
-                                  data-actors='Daniel, Rupert, Emma'
-                                  data-genres='Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\homealone.png' alt='Homealone poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>HOME ALONE</p>
-                          <p class='card-text'>An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Home Alone'
-                                  data-poster='\images\homealone.png'
-                                  data-plot="When bratty 8-year-old Kevin McCallister (Macaulay Culkin) acts out the night before a family trip to Paris, his mother (Catherine O'Hara) makes him sleep in the attic. After the McCallisters mistakenly leave for the airport without Kevin, he awakens to an empty house and assumes his wish to have no family has come true. But his excitement sours when he realizes that two con men (Joe Pesci, Daniel Stern) plan to rob the McCallister residence, and that he alone must protect the family home."
-                                  data-release-year='1990'
-                                  data-producer-name='John'
-                                  data-actors='Joe, Daniel, John'
-                                  data-genres='Comedy'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          
-          <div class="row" id="movieRow">
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\interstellar.png' alt='Interstellar poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>INTERSTELLAR</p>
-                          <p class='card-text'>A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='InterStellar'
-                                  data-poster='\images\interstellar.png'
-                                  data-plot="In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Caine), a brilliant NASA physicist, is working on plans to save mankind by transporting Earth's population to a new home via a wormhole. But first, Brand must send former NASA pilot Cooper (Matthew McConaughey) and a team of researchers through the wormhole and across the galaxy to find out which of three planets could be mankind's new home."
-                                  data-release-year='2014'
-                                  data-producer-name='Emma'
-                                  data-actors='Mathew, Anne, Jessica'
-                                  data-genres='Science-Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\lucy.png' alt='Lucy poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>LUCY</p>
-                          <p class='card-text'>A woman, accidentally caught in a dark deal, turns the tables on her captors and transforms into a merciless warrior evolved beyond human logic.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Lucy'
-                                  data-poster='\images\lucy.png'
-                                  data-plot="When a boyfriend tricks Lucy (Scarlett Johansson) into delivering a briefcase to a supposed business contact, the once-carefree student is abducted by thugs who intend to turn her into a drug mule. She is surgically implanted with a package containing a powerful chemical, but it leaks into her system, giving her superhuman abilities, including telekinesis and telepathy. With her former captors in pursuit, Lucy seeks out a neurologist (Morgan Freeman), who she hopes will be able to help her."
-                                  data-release-year='2014'
-                                  data-producer-name='Virginie'
-                                  data-actors='Scarlette, Morgan'
-                                  data-genres='Science-Fiction'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\scream.png' alt='Scream poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>SCREAM</p>
-                          <p class='card-text'>A year after the murder of her mother, a teenage girl is terrorized by a new killer, who targets the girl and her friends by using horror films as part of a deadly game</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Scream'
-                                  data-poster='\images\scream.png'
-                                  data-plot="Wes Craven re-invented and revitalised the slasher-horror genre with this modern horror classic, which manages to be funny, clever and scary, as a fright-masked knife maniac stalks high-school students in middle-class suburbia. Craven is happy to provide both tension and self-parody as the body count mounts - but the victims aren't always the ones you'd expect."
-                                  data-release-year='1996'
-                                  data-producer-name='William'
-                                  data-actors='Melissa, Mason, Jenna'
-                                  data-genres='Horror'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-                  </div>
-              </div>
-
-              <div class='col-xl-3 col-md-6 col-sm-12 col-xsm-12'>
-                  <div class='card mx-auto mt-2'>
-                      <img class='card-img-top' src='\images\stepbrothers.png' alt='StepBrothers poster'   >
-                      <div class='card-body overflow-auto'   >
-                          <p class='card-title text-center font-weight-bold'>STEP BROTHERS</p>
-                          <p class='card-text'>Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.</p>
-                      </div>
-                      <div class='card-footer'>
-                        <div  class='float-right'>
-                          <button type='button' class='btn btn-delete'   >
-                              <span class='fa fa-trash'></span>
-                          </button>
-                          <button type='button' class='btn btn-edit'   >
-                              <span class='fa fa-edit'></span>
-                          </button>
-                      </div>
-                              <a href='#movie-details-modal' class='float-left' data-toggle='modal'
-                                  data-name='Step Brothers'
-                                  data-poster='\images\stepbrothers.png'
-                                  data-plot="Brennan Huff (Will Ferrell) and Dale Doback (John C. Reilly) have one thing in common: they are both lazy, unemployed leeches who still live with their parents. When Brennan's mother and Dale's father marry and move in together, it turns the overgrown boys' world upside down. Their insane rivalry and narcissism pull the new family apart, forcing them to work together to reunite their parents."
-                                  data-release-year='2008'
-                                  data-producer-name='Jimmy'
-                                  data-actors='Will, John, Richard'
-                                  data-genres='Comedy'>
-                                  Explore <span class="fa fa-arrow-right"></span>
-                              </a>
-                              
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-
-      <div class="modal fade" id="movie-details-modal" role="dialog">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal fade" id="movie-details-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="movie-details-document">
             
-          </div>
-      </div>
-
+            </div>
+        </div>
+        </div>
         <script>
-          
-          $('#movie-details-modal').on('show.bs.modal', function(e) {
+            var moviesHTML = '';
+            for(var i = 0; i < movies.length; i++) 
+            {
+                moviesHTML += `
+                    <div class='col-xl-4 col-md-6 col-sm-12 col-xsm-12' id='${ movies[i].Name }'>
+                        <div class='card mx-auto mt-2'>
+                            <img class='card-img-top' src='\\images\\${ movies[i].Poster}' alt=' ${ movies[i].Name } Poster'>
+                            <div class='card-body overflow-auto'>
+                                <p class='card-title text-center font-weight-bold'>${ movies[i].Name }</p>
+                                <p class='card-text'>${ movies[i].Description }</p>
+                            </div>
+                            <div class='card-footer'>
+                                <div  class='float-right'>
+                                    <button type='button' class='btn btn-delete'>
+                                        <span class='fa fa-trash'></span>
+                                    </button>
+                                    <button type='button' class='btn btn-edit'>
+                                        <span class='fa fa-edit'></span>
+                                    </button>
+                                </div>
+                                <a href='#movie-details-modal' class='float-left' data-toggle='modal' data-target='#movie-details-modal'
+                                    data-name='${ movies[i].Name }'
+                                    data-poster='\\images\\${ movies[i].Poster }'
+                                    data-plot="${ movies[i].Plot }"'
+                                    data-release-year=${ movies[i].ReleaseYear }
+                                    data-producer-name=${ movies[i].ProducerName }
+                                    data-actors='${ movies[i].Actors }''
+                                    data-genres='${ movies[i].Genres }'' style='padding-top : 6px'>
+                                    Explore <span class=\"fa fa-arrow-right\"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
 
-              var e = $("\
-                  <div class='modal-content'>\
-                      <div class='modal-header text-center'>\
-                          <h5 class='modal-title w-100' id='movie-details-modal-long-title'>"+$(e.relatedTarget).data('name')+"</h5>\
-                          <button type='button' class='close' data-dismiss='modal'>\
-                              <span>&times;</span>\
-                          </button>\
-                      </div>\
-                      <div class='modal-body'>\
-                          <div id='content'>\
-                              <img src='"+$(e.relatedTarget).data('poster')+"' class='mx-auto d-block poster-width'/>\
-                              <hr>\
-                              <p class='text-center'>"+$(e.relatedTarget).data('plot')+"</p>\
-                              <p class='text-center'>\
-                                  <span class='font-weight-bold'>Released in: </span>\
-                                  "+$(e.relatedTarget).data('release-year')+"\
-                              </p>\
-                              <p class='text-center'>\
-                                  <span class='font-weight-bold'>Producer: </span>\
-                                  "+$(e.relatedTarget).data('producer-name')+"\
-                              </p>\
-                              <p class='text-center'>\
-                                  <span class='font-weight-bold'>Actors: </span>\
-                                  "+$(e.relatedTarget).data('actors')+"\
-                              </p>\
-                              <p class='text-center'>\
-                                  <span class='font-weight-bold'>Genres: </span>\
-                                  "+$(e.relatedTarget).data('genres')+"\
-                              </p>\
-                          </div>\
-                      </div>\
-                      <div class='modal-footer'>\
-                          <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>\
-                      </div>\
-                  </div>\
-              ");
-              
-              $('div[role="document"]').append(e);
-              
-          });
+            $('#movieRow')[0].innerHTML += moviesHTML;
+            $('#movie-details-modal').on('show.bs.modal', function(e) {
 
-          $('#movie-details-modal').on('hidden.bs.modal', function(e) {
+                var modalHtml = $("\
+                    <div class='modal-content'>\
+                        <div class='modal-header text-center'>\
+                            <h5 class='modal-title w-100' id='movie-details-modal-long-title'>"+$(e.relatedTarget).data('name')+"</h5>\
+                            <button type='button' class='close' data-dismiss='modal'>\
+                                <span>&times;</span>\
+                            </button>\
+                        </div>\
+                        <div class='modal-body'>\
+                            <div id='content'>\
+                                <img src='"+$(e.relatedTarget).data('poster')+"' class='mx-auto d-block poster-width'/>\
+                                <hr>\
+                                <p class='text-center'>"+$(e.relatedTarget).data('plot')+"</p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Released in: </span>\
+                                    "+$(e.relatedTarget).data('release-year')+"\
+                                </p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Producer: </span>\
+                                    "+$(e.relatedTarget).data('producer-name')+"\
+                                </p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Actors: </span>\
+                                    "+$(e.relatedTarget).data('actors')+"\
+                                </p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Genres: </span>\
+                                    "+$(e.relatedTarget).data('genres')+"\
+                                </p>\
+                            </div>\
+                        </div>\
+                        <div class='modal-footer'>\
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>\
+                        </div>\
+                    </div>\
+                ");
+                
+                $('div[role="movie-details-document"]').append(modalHtml);
+                
+            });
 
-              $('div[class="modal-content"]').remove();
+            $('#movie-details-modal').on('hidden.bs.modal', function(e) {
 
-          });
+                $('div[class="modal-content"]').remove();
 
-          
-
+            });
         </script>
     </body>
 </html>

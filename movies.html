@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movies List</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="/assets/deltaX-icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
+        <link href="bootstrap.css" rel="stylesheet">
+        <script src="jquery-3.6.0.js"></script>
+        <script src="popper.js"></script>
+        <script src="bootstrap.js"></script>
+        <script src="constants.js"></script>
+        <style>
+            .card-img-top {
+                height: 350px !important;
+            }
+            .card-body {
+                height: 250px !important;
+            }
+            .btn-delete {
+                color: rgb(252, 73, 73); 
+            }
+            .btn-edit {
+                color: rgb(20, 175, 69);
+            }
+            .movies-container {
+                margin-top: 70px;
+            }
+            .poster-width {
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar bg-dark navbar-expand-sm fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="assets/deltaX-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <span class="text-light">Movie List</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">&#9776</span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="movies.html">Movies<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Actors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Producers</a>
+                    </li>
+                    <li>
+                        <a class="text-light btn bg-primary" href="addMovie.html">Add Movie</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>
+        
+        <div class="container movies-container">
+          <div class="row" id="movieRow">
+
+          </div>
+        </div>
+
+        <div class="modal fade" id="movie-details-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="movie-details-document">
+            
+            </div>
+        </div>
+        </div>
+        <script>
+            var moviesHTML = '';
+            for(var i = 0; i < movies.length; i++) 
+            {
+                moviesHTML += `
+                    <div class='col-xl-4 col-md-6 col-sm-12 col-xsm-12' id='${ movies[i].Name }'>
+                        <div class='card mx-auto mt-2'>
+                            <img class='card-img-top' src='\\images\\${ movies[i].Poster}' alt=' ${ movies[i].Name } Poster'>
+                            <div class='card-body overflow-auto'>
+                                <p class='card-title text-center font-weight-bold'>${ movies[i].Name }</p>
+                                <p class='card-text'>${ movies[i].Description }</p>
+                            </div>
+                            <div class='card-footer'>
+                                <div  class='float-right'>
+                                    <button type='button' class='btn btn-delete'>
+                                        <span class='fa fa-trash'></span>
+                                    </button>
+                                    <button type='button' class='btn btn-edit'>
+                                        <span class='fa fa-edit'></span>
+                                    </button>
+                                </div>
+                                <a href='#movie-details-modal' class='float-left' data-toggle='modal' data-target='#movie-details-modal'
+                                    data-name='${ movies[i].Name }'
+                                    data-poster='\\images\\${ movies[i].Poster }'
+                                    data-plot="${ movies[i].Plot }"'
+                                    data-release-year=${ movies[i].ReleaseYear }
+                                    data-producer-name=${ movies[i].ProducerName }
+                                    data-actors='${ movies[i].Actors }''
+                                    data-genres='${ movies[i].Genres }'' style='padding-top : 6px'>
+                                    Explore <span class=\"fa fa-arrow-right\"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            $('#movieRow')[0].innerHTML += moviesHTML;
+            $('#movie-details-modal').on('show.bs.modal', function(e) {
+
+                var modalHtml = $("\
+                    <div class='modal-content'>\
+                        <div class='modal-header text-center'>\
+                            <h5 class='modal-title w-100' id='movie-details-modal-long-title'>"+$(e.relatedTarget).data('name')+"</h5>\
+                            <button type='button' class='close' data-dismiss='modal'>\
+                                <span>&times;</span>\
+                            </button>\
+                        </div>\
+                        <div class='modal-body'>\
+                            <div id='content'>\
+                                <img src='"+$(e.relatedTarget).data('poster')+"' class='mx-auto d-block poster-width'/>\
+                                <hr>\
+                                <p class='text-center'>"+$(e.relatedTarget).data('plot')+"</p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Released in: </span>\
+                                    "+$(e.relatedTarget).data('release-year')+"\
+                                </p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Producer: </span>\
+                                    "+$(e.relatedTarget).data('producer-name')+"\
+                                </p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Actors: </span>\
+                                    "+$(e.relatedTarget).data('actors')+"\
+                                </p>\
+                                <p class='text-center'>\
+                                    <span class='font-weight-bold'>Genres: </span>\
+                                    "+$(e.relatedTarget).data('genres')+"\
+                                </p>\
+                            </div>\
+                        </div>\
+                        <div class='modal-footer'>\
+                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>\
+                        </div>\
+                    </div>\
+                ");
+                
+                $('div[role="movie-details-document"]').append(modalHtml);
+                
+            });
+
+            $('#movie-details-modal').on('hidden.bs.modal', function(e) {
+
+                $('div[class="modal-content"]').remove();
+
+            });
+        </script>
+    </body>
+</html>
+

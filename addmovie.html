@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movies List</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="/assets/deltaX-icon.png">
+        <meta name="viewport" content="width=device-width; initial-scale=1">
+        <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
+        <link href="bootstrap.css" rel="stylesheet">
+        <script src="jquery-3.6.0.js"></script>
+        <script src="popper.js"></script>
+        <script src="bootstrap.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <style>
+            .form-container {
+                max-width: 800px; 
+                margin-top: 70px; 
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body class="bg-secondary">
+        <nav class="navbar bg-dark navbar-expand-sm fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="assets/deltaX-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <span class="text-light">Movie List</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarNavDropdown" aria-expanded="false" aria-lable="Toggle navigation">
+                <span class="navbar-toggler-icon">&#9776</span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="movies.html">Movies<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Actors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Producers</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="modal fade" id="add-producer-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content"> 
+                    
+                    <div class="modal-header text-center"> 
+                        <h5 class="modal-title w-100" id="movie-details-modal-long-title">Add Producer</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div id="content">
+
+                            <div class="container" onsubmit="ProducerAdded()">
+
+                                <form id="add-producer-form">
+                                
+                                    <div class="form-group">
+                                        <lable for="producer-name">Producer's name</lable>
+                                        <input type="text" class="form-control" id="producer-name" name="name" placeholder="Enter producer's name" required="required">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <lable for="producer-dob">Producer's DOB</lable>
+                                        <input type="date" class="form-control" id="producer-dob" name="dob" placeholder="Enter producer's date of birth" required="required">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <lable for="producer-bio">Producer's bio</lable>
+                                        <input type="text" class="form-control" id="producer-bio" name="bio" placeholder="Enter producer's bio" required="required">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <lable for="producer-gender">Producer's gender</lable>
+                                        <div class="form-check form-check-inline" id="producer-gender">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male-radio" value="male">
+                                            <lable class="form-check-lable" for="male-radio">Male</lable>
+                                        </div>
+                                        <div class="form-check form-check-inline" id="producer-gender">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female-radio" value="female">
+                                            <lable class="form-check-lable" for="female-radio">Female</lable>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Add</button>
+            
+                                </form>
+            
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            
+            </div>
+      
+        </div>
+
+        <div class="modal fade" id="add-actor-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content"> 
+                    
+                    <div class="modal-header text-center"> 
+                        <h5 class="modal-title w-100" id="movie-details-modal-long-title">Add Actor</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div id="content">
+
+                            <div class="container" onsubmit="ActorAdded()">
+
+                                <form id="add-actor-form">
+                                
+                                    <div class="form-group">
+                                        <lable for="actor-name">Actor's name</lable>
+                                        <input type="text" class="form-control" id="actor-name" name="name" placeholder="Enter actor's name" required="required">
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <lable for="actor-dob">Actor's DOB</lable>
+                                        <input type="date" class="form-control" id="actor-dob" name="dob" placeholder="Enter actor's date of birth" required="required">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <lable for="actor-bio">Actor's bio</lable>
+                                        <input type="text" class="form-control" id="actor-bio" name="bio" placeholder="Enter actor's bio" required="required">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <lable for="actor-gender">Actor's gender</lable>
+                                        <div class="form-check form-check-inline" id="actor-gender">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male-radio" value="male">
+                                            <lable class="form-check-lable" for="male-radio">Male</lable>
+                                        </div>
+                                        <div class="form-check form-check-inline" id="actor-gender">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female-radio" value="female">
+                                            <lable class="form-check-lable" for="female-radio">Female</lable>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Add</button>
+            
+                                </form>
+            
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+
+        <div class="modal fade" id="add-genre-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <div class="modal-content"> 
+                    
+                    <div class="modal-header text-center"> 
+                        <h5 class="modal-title w-100" id="movie-details-modal-long-title">Add Genre</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div id="content">
+
+                            <div id="content">
+
+                                <div class="container" onsubmit="GenreAdded()">
+    
+                                    <form id="add-genre-form">
+                                    
+                                        <div class="form-group">
+                                            <lable for="genre-name">Genre name</lable>
+                                            <input type="text" class="form-control" id="genre-name" name="name" placeholder="Enter genre's name" required="required">
+                                        </div>
+                                                        
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                
+                                    </form>
+                
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="container bg-light rounded form-container" onsubmit="MovieAdded()">
+            <h3 class="font-weight-bold">Movie Details</h3>
+            <hr>
+            <form>
+                <div class="form-group">
+                    <lable for="movieName" class="font-weight-bold">Movie Name :</lable>
+                    <input type="text" id="movieName" class="form-control" placeholder="Enter movie name">
+                </div>
+
+                <div class="form-group">
+                    <lable for="poster" class="font-weight-bold">Poster :</lable>
+                    <input type="file" id="poster" class="form-control-file">
+                </div>
+
+                <div class="form-group">
+                    <lable for="plot" class="font-weight-bold">Movie Plot :</lable>
+                    <textarea id="plot" class="form-control" placeholder="Enter movie plot"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <lable for="dateOfRelease" class="font-weight-bold">Date of Release :</lable>
+                    <input type="number" id="dateOfRelease" class="form-control" placeholder="Enter year of release">
+                </div>
+                <div class="form-group">
+                    <lable for="producer" class="font-weight-bold">Select Producer :</lable>
+                    <div class="input-group">
+                        <select name="producer" id="producer" class="form-control">
+                            <option value="" disabled selected>Select Producer</option>
+                            <option value="kevin">kevin</option>
+                            <option value="James">James</option>
+                            <option value="John">John</option>
+                            <option value="Patricia">Patricia</option>
+                            <option value="Gina">Gina</option>
+                            <option value="David">David</option>
+                            <option value="Emma">Emma</option>
+                            <option value="Virginie">Virginie</option>
+                            <option value="William">William</option>
+                            <option value="Jimmy">Jimmy</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add-producer-modal">
+                                Add Producer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <lable for="actors" class="font-weight-bold">Select Actors :</lable>
+                    <div class="input-group" >
+                        <select name="actors" id="actors" class="form-control actors"  multiple="multiple">
+                            <option>Chris</option>
+                            <option>Natalie</option>
+                            <option>Tessa</option>
+                            <option>Eric</option>
+                            <option>Jennifer</option>
+                            <option>Sam</option>
+                            <option>Robert</option>
+                            <option>Jon</option>
+                            <option>Gwyneth</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add-actor-modal">
+                                Add Actor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <lable for="genres" class="font-weight-bold">Select Genres :</lable>
+                    <div class="input-group" >
+                        <select name="genres" id="genres" class="form-control genres"  multiple="multiple">
+                            <option>Action</option>
+                            <option>Comedy</option>
+                            <option>Drama</option>
+                            <option>Fantasy</option>
+                            <option>Horror</option>
+                            <option>Science-Fiction</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add-genre-modal">
+                                Add Genre
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Add
+                    </button>
+                </div>
+
+
+            </form>
+          </div>
+          <script>
+            $(document).ready(function() {
+                $('.genres').select2();
+                $('.actors').select2();
+            });
+
+            function formatState (state) {
+                if (!state.id) {
+                    return state.text;
+                }
+                var baseUrl = "/user/pages/images/flags";
+                var $state = $(
+                    '<span><img src="' + baseUrl + '/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
+                );
+                return $state;
+            };
+
+            $(".genres").select2({
+                templateResult: formatState
+            });
+
+            $(".actors").select2({
+                templateResult: formatState
+            });
+
+            function MovieAdded(){
+                alert("Movie added successfully");
+            }
+            function ProducerAdded(){
+                alert("Producer added successfully");
+            }
+            function ActorAdded(){
+                alert("Actor added successfully");
+            }
+            function GenreAdded(){
+                alert("Genre added successfully");
+            }
+        </script>
+    </body>
+</html>
